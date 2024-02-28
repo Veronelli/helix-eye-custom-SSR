@@ -1,4 +1,4 @@
-export const template = (html): string => {
+export const template = (html: string, initialProps: object): string => {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -18,6 +18,8 @@ export const template = (html): string => {
     <div id="app">
       ${html}
     </div>
+    <script>
+    window.__INITIAL_PROPS__ = ${JSON.stringify(initialProps)}</script>
     <script src="app.js"></script>
     </body>
     

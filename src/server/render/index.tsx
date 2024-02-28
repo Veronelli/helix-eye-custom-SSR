@@ -4,12 +4,12 @@ import {StaticRouter} from "react-router-dom/server";
 import {renderToString} from "react-dom/server";
 import { template } from "./template";
 
-export const render = (url: string)=>{
+export const render = (url: string, initialProps: object = {})=>{
     const stringReactComponent = renderToString(
         <StaticRouter location={url}>
             <App/>
         </StaticRouter>
     );
-    const stringHTML = template(stringReactComponent);
+    const stringHTML = template(stringReactComponent, initialProps);
     return stringHTML;
 }
